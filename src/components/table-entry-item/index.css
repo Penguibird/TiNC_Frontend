@@ -1,0 +1,7 @@
+.table-entry-item {
+    display: inline-block;
+    padding: 10px;
+    margin: auto;
+    text-align: center;
+    flex-basis: 0px;
+}

@@ -1,0 +1,9 @@
+.content-table {
+    width: 80%;
+    position: relative;
+    top: 150px;
+    margin: 0 auto;
+    box-shadow: 2px 3px 5px 6px #ccc;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}

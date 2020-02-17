@@ -1,0 +1,27 @@
+.table-entry{
+    background-color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Segoe UI';
+    font-size: 16;
+    color: #707070;
+    position: relative;
+
+}
+
+.table-entry-line {
+    height: 0;
+    width: 85%;
+    margin: 0 auto;
+    border: 0.5px solid #B9B9B9;
+    border-radius: 100%;
+}
+
+.table-entry-wrapper{
+    background-color: white;
+    padding: 0;
+    border: none;
+}

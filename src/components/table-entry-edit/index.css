@@ -1,0 +1,68 @@
+.edit-wrapper-top{
+    position: relative;
+    width: 100%;
+    margin: auto;
+    display: flex;
+} 
+
+.collapse-button{
+    position: relative;
+    display: flex;
+    left: 80px;
+    padding: 10px;
+    background-color: white;
+    border: none;
+}
+
+.icon{
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.button-text{
+    margin:auto;
+    position: relative;
+    text-align: center;
+    padding-left: 15px;
+    margin-right: 5px;
+    color: #707070;
+}
+
+.edit-container{
+    display:flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-left: 6%;
+    padding-right: 5%;
+    margin-bottom: 20px;
+}
+
+/* .edit-wrapper{
+} */
+
+.text-input-wrapper{
+    display: flex;
+    align-content: flex-end;
+    margin-bottom:5px;
+}
+
+.edit-wrapper .text-input {
+    position: relative;
+    margin-left: 10px;
+    font-size: 14px;
+    margin-top:auto;
+    margin-bottom: auto;
+
+    align-self: flex-end;
+}
+
+
+.contact-name{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.contact-position{
+    font-size: 14px;
+}

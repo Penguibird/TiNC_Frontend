@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="121" height="96" viewBox="0 0 121 96">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #2194e1;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        font-size: 44px;
+        font-family: NirmalaUI-Bold, Nirmala UI;
+        font-weight: 700;
+      }
+
+      .cls-3 {
+        font-size: 61px;
+      }
+
+      .cls-4 {
+        filter: url(#TiNC);
+      }
+    </style>
+    <filter id="TiNC" x="0" y="0" width="121" height="96" filterUnits="userSpaceOnUse">
+      <feOffset dx="2" dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_8" data-name="Group 8" transform="translate(-10.5 11.5)">
+    <rect id="Rectangle_12" data-name="Rectangle 12" class="cls-1" width="113" height="61" transform="translate(11 7)"/>
+    <g class="cls-4" transform="matrix(1, 0, 0, 1, 10.5, -11.5)">
+      <text id="TiNC-2" data-name="TiNC" class="cls-2" transform="translate(5.5 4.5)"><tspan x="0" y="66">T</tspan><tspan class="cls-3" y="66">i</tspan><tspan y="66">NC</tspan></text>
+    </g>
+  </g>
+</svg>

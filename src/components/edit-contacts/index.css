@@ -1,0 +1,54 @@
+.edit-contacts{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    /* margin-right: -5%; */
+}
+
+.contact-wrapper{
+    flex-grow: 1;
+    padding-top: 8px;
+    padding-bottom: 10px;
+    padding-right: 2.5vw;
+    padding-left: 2.5vw;
+}
+
+.edit-contacts .text-input-wrapper .text-input {
+    margin-bottom: 10px;
+}
+
+.contact-email-wrapper .text-input,
+.contact-phone-wrapper .text-input  {
+    position: relative;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+.edit-contacts .icon {
+    position: relative;
+    align-self: flex-start;
+    padding-top: 8px;
+}
+
+.edit-flexbox{
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-email-wrapper,
+.contact-phone-wrapper {
+    display: flex;
+}
+
+.contact-email-wrapper .edit-flexbox,
+.contact-phone-wrapper .edit-flexbox{
+    padding-top: 10px;
+}
+
+.add-new-contact {
+    flex-grow: 1;
+    background-color: white;
+    border: none;
+    padding: 20px;
+}

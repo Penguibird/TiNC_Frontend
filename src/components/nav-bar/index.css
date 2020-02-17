@@ -1,0 +1,7 @@
+#nav-bar {
+    background-color: #2194E1;
+    position: fixed;
+    width: 100vw;
+    height: 63px;
+    box-shadow: 0px 10px 10 #888888
+}

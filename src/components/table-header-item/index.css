@@ -1,0 +1,14 @@
+.table-header-item {
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Segoe UI';
+    color: white;
+    display: inline-block;
+    white-space: nowrap;
+    overflow-x: auto;
+    padding: 20px;
+    margin: auto;
+    text-align: center;
+    flex-basis: 0px;
+
+}

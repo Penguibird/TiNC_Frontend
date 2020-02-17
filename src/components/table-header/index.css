@@ -1,0 +1,9 @@
+#table-header {
+    background-color: #2194E1;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    height: 61px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}

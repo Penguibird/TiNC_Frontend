@@ -1,0 +1,23 @@
+.edit-notes{
+    display: flex;
+}
+
+.edit-notes .icon{
+    align-self: flex-start;
+}
+
+.edit-notes-flex{
+    display: flex;
+    flex-direction: column;
+    padding-top: 12px;
+    padding-left: 10px;
+}
+
+.edit-note{
+    color: #707070;
+    margin-top: 10px;
+}
+
+.edit-add-note{
+    font-size: 14px;
+}

@@ -1,0 +1,18 @@
+.text-input {
+    border-bottom: 1px solid #707070;
+    color: #707070;
+    font-family: 'Helvetica';   
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding-left: 2px;
+}
+
+
+input.text-input {
+    width: 140px;
+}
+
+textarea.text-input  {
+    resize: none;
+}
