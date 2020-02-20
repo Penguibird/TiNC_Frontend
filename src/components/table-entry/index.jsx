@@ -21,20 +21,6 @@ export default class TableEntry extends Component {
         this.setState({ ticked: value })
     }
 
-    componentWillMount() {
-        console.log('component did mount')
-        // this.setState({
-        //     ticked: false,
-        //     collapsed: true,
-        //     data: this.props.data
-        // })
-        // IF something goes wrong, blame this thing
-    }
-
-    componentDidUpdate() {
-        
-    }
-
     collapse() {
         this.setState({ collapsed: true, data: this.props.data });
     }

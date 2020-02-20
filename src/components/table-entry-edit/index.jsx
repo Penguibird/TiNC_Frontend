@@ -80,8 +80,8 @@ export default function TableEntryEdit(props) {
     const debouncedData = useDebounce(cleanInput(data), 500);
 
     useEffect(() => {
-        console.log("data was changed");
         if (Object.entries(debouncedData).length !== 0) {
+            console.log("Called mutation, Sending data to API");
             let input = debouncedData;
             mutate({ variables: { id: props.uuid, input: input } })
         }
@@ -98,8 +98,8 @@ export default function TableEntryEdit(props) {
         setData(cleanInput(object));
     }
 
-    const addNote = (note) => {
-        let newData = data.notes.push(note);
+    const setNotes = (notes) => {
+        let newData = Object.assign({}, data, { notes: notes });
         setData(cleanInput(newData));
     }
 
@@ -170,7 +170,7 @@ export default function TableEntryEdit(props) {
                 </div>
             </div>
             <Contacts contacts={data.contacts} setContacts={setContacts} uuid={props.uuid} />
-            <Notes notes={data.notes} addNote={addNote} uuid={props.uuid} />
+            <Notes notes={data.notes} setNotes={setNotes} uuid={props.uuid} />
         </div>
     </div>
 }

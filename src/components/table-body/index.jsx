@@ -117,7 +117,7 @@ export default function Body(props) {
         <button onClick={addEntry}>Vytvořit Nový</button>
         {console.log(data.entries)}
         {data.entries.map((entry, index) =>
-            <TableEntry uuid={entry.id} data={{
+            <TableEntry uuid={entry.id} key={entry.id} data={{
                 institution: entry.institution,
                 city: entry.city.name,
                 interest: entry.interest.name,

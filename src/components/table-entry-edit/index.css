@@ -29,17 +29,8 @@
     color: #707070;
 }
 
-.edit-container{
-    display:flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    padding-left: 6%;
-    padding-right: 5%;
-    margin-bottom: 20px;
-}
 
-/* .edit-wrapper{
-} */
+
 
 .text-input-wrapper{
     display: flex;
@@ -65,4 +56,29 @@
 
 .contact-position{
     font-size: 14px;
+}
+
+.edit-container{
+    padding-left: 6%;
+    padding-right: 5%;
+    margin-bottom: 20px;
+    display:grid;
+    grid-template-columns: 180px auto;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+        "fields contacts "    
+        ". contacts "
+        "notes notes";    
+}
+
+.edit-wrapper{
+    grid-area: fields;
+}
+
+.edit-contacts{
+    grid-area: contacts;
+}
+
+.edit-notes{
+    grid-area: notes;
 }

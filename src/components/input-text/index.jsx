@@ -2,6 +2,9 @@ import css from './index.css'
 import React, { Component, useState, useEffect } from 'react';
 import pixelWidth from 'string-pixel-width';
 
+let targetWidth;
+
+
 export default function Input(props) {
     // constructor(props) {
     //     super(props);
@@ -16,44 +19,55 @@ export default function Input(props) {
     const [style, setStyle] = useState();
     const [rows, setRows] = useState();
     const [long, setLong] = useState();
+    let value = props.defaultValue;
     let myRef = null;
+    // const [targetWidth, setTargetWidth] = useState(140);
 
     useEffect(() => {
+        
         updateWidth(props.defaultValue);
+        value = props.defaultValue;
+
     }, [setStyle]);
 
-    const handleChange = (e) => {
-        updateWidth(e.target.value);
-        if (props.onChange) {
-            props.onChange(e);
-        }
-    }
 
     useEffect(() => {
         myRef.focus();
     }, [long])
 
-    const moveCursorToEnd = (e) => {
-        var temp_value = e.target.value
-        e.target.value = ''
-        e.target.value = temp_value
-    }
-
     const updateWidth = (value) => {
+        if (props.targetWidth) {
+            console.log(props.defaultValue, props.targetWidth());
+            // setTargetWidth(props.targetWidth());
+            targetWidth = props.targetWidth();
+        } else {
+            targetWidth = 140;
+        }
         let fontSize = parseInt(window.getComputedStyle(myRef).getPropertyValue("font-size"));
         let bold = (window.getComputedStyle(myRef).getPropertyValue("font-weight") == '700');
-        let targetWidth = 140;
         let width = pixelWidth(value, { size: fontSize, bold: bold }) + 3;
         let long = (width >= targetWidth);
 
         setStyle({ width: long ? targetWidth : width });
         setLong(long);
-        setRows(Math.ceil(width / (targetWidth -0.5)));
-
-        // console.log('update Width was called');
-
+        setRows(Math.ceil(width / (targetWidth - 0.5)));
+        console.log('update rows', Math.ceil(width / (targetWidth - 0.5)), { targetWidth });
     }
-    //add focus to the textarea immediately afer rendering
+
+    const moveCursorToEnd = (e) => {
+        //add focus to the textarea immediately afer rendering
+        var temp_value = e.target.value
+        e.target.value = ''
+        e.target.value = temp_value
+    }
+
+    const handleChange = (e) => {
+        updateWidth(e.target.value);
+        value = e.target.value
+        if (props.onChange) {
+            props.onChange(e);
+        }
+    }
 
     const onFocus = (e) => {
         moveCursorToEnd(e);
@@ -63,7 +77,7 @@ export default function Input(props) {
     }
 
     const onBlur = (e) => {
-        if(props.onBlur) {
+        if (props.onBlur) {
             props.onBlur(e)
         }
     }
@@ -71,8 +85,7 @@ export default function Input(props) {
     const propsI = {
         className: 'text-input ' + props.className,
         style: style,
-        key: props.key,
-        defaultValue: props.defaultValue,
+        defaultValue: value,
         onChange: handleChange,
         onFocus: onFocus,
         onBlur: onBlur,
@@ -83,7 +96,7 @@ export default function Input(props) {
         <textarea
             {...propsI}
             wrap='hard'
-            cols='40'
+            cols='1000'
             rows={rows}
         /> :
         <input type='text'
