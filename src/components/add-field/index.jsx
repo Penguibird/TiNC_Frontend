@@ -37,6 +37,8 @@ export default function Add(props) {
 
     return adding ?
         <TextInput
+            // {...props}
+            targetWidth={props.targetWidth}
             className={'add ' + props.className}
             defaultValue={defaultValue}
             onChange={e => {

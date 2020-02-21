@@ -52,3 +52,39 @@
     border: none;
     padding: 20px;
 }
+
+.remove-button {
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 0px 6px ;
+    float: right;
+    position: relative;
+}
+
+.contact-wrapper{
+    display: grid;
+    grid-template-columns: 30px auto 40px;
+    grid-template-rows: auto auto auto auto auto auto;
+    grid-template-areas: 
+        "name name delButton"
+        "position position delButton"
+        "phoneIcon phone phone"
+        ".          phone phone"
+        "emailIcon email email"
+        ".          email email"
+        ;
+    align-items: center;
+}
+
+.remove-button{grid-area: delButton;}
+.contact-name{grid-area: name}
+.contact-position{grid-area: position;}
+.contact-phone-wrapper{grid-area: phone;}
+.contact-email-wrapper{grid-area: email;}
+.icon.phone{grid-area: phoneIcon;}
+.icon.email{grid-area: emailIcon;}
+
+.icon{
+    padding: 0px;
+}

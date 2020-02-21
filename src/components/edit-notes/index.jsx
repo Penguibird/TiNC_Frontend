@@ -47,6 +47,7 @@ export default function Notes(props) {
                     onBlur={onBlur}
                     field='notes'
                     name='note'
+                    targetWidth={getWidth}
                     style={{
                         backgroundColor: 'white',
                         width: '71px',
