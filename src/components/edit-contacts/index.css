@@ -25,11 +25,11 @@
     margin-bottom: 5px;
 }
 
-.edit-contacts .icon {
+/* .edit-contacts .icon {
     position: relative;
     align-self: flex-start;
     padding-top: 8px;
-}
+} */
 
 .edit-flexbox{
     display: flex;
@@ -39,6 +39,7 @@
 .contact-email-wrapper,
 .contact-phone-wrapper {
     display: flex;
+    padding-top: 5px;
 }
 
 .contact-email-wrapper .edit-flexbox,
@@ -64,7 +65,7 @@
 
 .contact-wrapper{
     display: grid;
-    grid-template-columns: 30px auto 40px;
+    grid-template-columns: 30px auto 50px;
     grid-template-rows: auto auto auto auto auto auto;
     grid-template-areas: 
         "name name delButton"
@@ -75,6 +76,7 @@
         ".          email email"
         ;
     align-items: center;
+    row-gap: 8px;
 }
 
 .remove-button{grid-area: delButton;}
@@ -86,5 +88,7 @@
 .icon.email{grid-area: emailIcon;}
 
 .icon{
+    place-self: center;
     padding: 0px;
+    margin: 5px;
 }

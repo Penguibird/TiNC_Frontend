@@ -10,10 +10,9 @@ export default class TableEntry extends Component {
         super(props);
         this.state = {
             ticked: false,
-            collapsed: props.expanded ? false : true,
-            data: this.props.data
+            data: props.data
         };
-        this.collapse = this.collapse.bind(this)
+        this.setExpandedParent = this.props.setCurrentlyExpanded;
         this.expand = this.expand.bind(this)
     }
 
@@ -21,13 +20,15 @@ export default class TableEntry extends Component {
         this.setState({ ticked: value })
     }
 
-    collapse() {
-        this.setState({ collapsed: true, data: this.props.data });
+    collapse = () => {
+        this.setState({ expanded: false, data: this.props.data });
+        this.setExpandedParent('')
     }
+
 
     updateData = (data) => {
         let newState = this.state
-        newState.collapsed = true;
+        newState.expanded = false;
         Object.keys(this.state.data).forEach((v, i) => {
             if (data[v]) {
                 if (typeof data[v] === 'object' && !Array.isArray(data[v])) {
@@ -41,12 +42,13 @@ export default class TableEntry extends Component {
         })
     }
 
-    expand() {
-        this.setState({ collapsed: false })
+    expand = () => {
+        this.setState({ expanded: true });
+        this.setExpandedParent(this.props.uuid)
     }
 
     render() {
-        return this.state.collapsed ?
+        return !this.props.expanded ?
             <button className='table-entry-wrapper' onClick={this.expand}>
                 <div className='table-entry'>
                     <Tickbox callback={this.setTicked} />
@@ -56,7 +58,6 @@ export default class TableEntry extends Component {
                         )
                     }
                 </div>
-                {this.props.isLast ? null : <div className='table-entry-line'></div>}
             </button>
             :
             <TableEntryEdit

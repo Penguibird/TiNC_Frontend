@@ -18,13 +18,14 @@ export default function Input(props) {
 
     const [style, setStyle] = useState();
     const [rows, setRows] = useState();
-    const [long, setLong] = useState();
+    const [long, setLong] = useState(-1);
+    const [first, setFirst] = useState(true)
     let value = props.defaultValue;
     let myRef = null;
     // const [targetWidth, setTargetWidth] = useState(140);
 
     useEffect(() => {
-        
+
         updateWidth(props.defaultValue);
         value = props.defaultValue;
 
@@ -32,12 +33,17 @@ export default function Input(props) {
 
 
     useEffect(() => {
-        myRef.focus();
+        console.log(first);
+
+        if (first) {
+            setFirst(false);
+        } else {
+            myRef.focus()
+        }
     }, [long])
 
     const updateWidth = (value) => {
         if (props.targetWidth) {
-            console.log(props.defaultValue, props.targetWidth());
             // setTargetWidth(props.targetWidth());
             targetWidth = props.targetWidth();
         } else {
@@ -45,13 +51,13 @@ export default function Input(props) {
         }
         let fontSize = parseInt(window.getComputedStyle(myRef).getPropertyValue("font-size"));
         let bold = (window.getComputedStyle(myRef).getPropertyValue("font-weight") == '700');
-        let width = pixelWidth(value, { size: fontSize, bold: bold }) + 3;
+        let width = pixelWidth(value, { size: fontSize, bold: bold }) + 15;
         let long = (width >= targetWidth);
 
         setStyle({ width: long ? targetWidth : width });
-        setLong(long);
+        if (!first) setLong(long);
         setRows(Math.ceil(width / (targetWidth - 0.5)));
-        console.log('update rows', Math.ceil(width / (targetWidth - 0.5)), { targetWidth });
+        // console.log('update rows', Math.ceil(width / (targetWidth - 0.5)), { targetWidth });
     }
 
     const moveCursorToEnd = (e) => {
@@ -64,22 +70,16 @@ export default function Input(props) {
     const handleChange = (e) => {
         updateWidth(e.target.value);
         value = e.target.value
-        if (props.onChange) {
-            props.onChange(e);
-        }
+        if (props.onChange) props.onChange(e);
     }
 
     const onFocus = (e) => {
         moveCursorToEnd(e);
-        if (props.onFocus) {
-            props.onFocus(e)
-        }
+        if (props.onFocus) props.onFocus(e);
     }
 
     const onBlur = (e) => {
-        if (props.onBlur) {
-            props.onBlur(e)
-        }
+        if (props.onBlur) props.onBlur(e)
     }
 
     const propsI = {

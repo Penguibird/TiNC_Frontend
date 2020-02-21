@@ -32,7 +32,7 @@ export default function Notes(props) {
     }
 
     const getWidth = () => {
-        let wd = myRef.current.offsetWidth * 0.8;
+        let wd = myRef.current.offsetWidth *0.9;
         console.error(myRef, wd);
         return wd
     }

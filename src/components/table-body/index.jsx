@@ -1,5 +1,5 @@
 import css from './index.css'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import TableEntry from '../table-entry';
 import Loading from '../loading';
 import gql from "graphql-tag";
@@ -11,6 +11,12 @@ export default function Body(props) {
     const [data, setData] = useState({})
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(false)
+    const [currentlyExpanded, setCurrentlyExpanded] = useState('emptyuuid')
+
+    const setExpanded = (id) => {
+        setCurrentlyExpanded(id)
+    }
+
 
     const GET_ENTRIES = gql`
     query {
@@ -52,8 +58,9 @@ export default function Body(props) {
     const [create, { mutLoading, mutError }] = useMutation(CREATE_ENTRY);
 
     const addEntry = () => {
+        let id = uuid()
         let input = {
-            id: uuid(),
+            id: id,
             institution: '',
             city: {
                 id: uuid(), //wrong and just temporary
@@ -69,7 +76,7 @@ export default function Body(props) {
         let newData = data;
         newData.entries.push(input);
         setData(newData);
-
+        setCurrentlyExpanded(id)
         create({
             variables: {
                 input: input,
@@ -117,16 +124,20 @@ export default function Body(props) {
         <button onClick={addEntry}>Vytvořit Nový</button>
         {console.log(data.entries)}
         {data.entries.map((entry, index) =>
-            <TableEntry uuid={entry.id} key={entry.id} data={{
-                institution: entry.institution,
-                city: entry.city.name,
-                interest: entry.interest.name,
-                // notes: entry.notes ? entry.notes[0] : '',
-            }}
-                isLast={(index == data.entries.length - 1)}
-                client={props.client}
-                removeEntry={removeEntry}
-            />
+            <Fragment>
+                <TableEntry uuid={entry.id} key={entry.id} data={{
+                    institution: entry.institution,
+                    city: entry.city.name,
+                    interest: entry.interest.name,
+                    // notes: entry.notes ? entry.notes[0] : '',
+                }}
+                    client={props.client}
+                    removeEntry={removeEntry}
+                    setCurrentlyExpanded={setExpanded}
+                    expanded={currentlyExpanded === entry.id}
+                />
+                {(index == data.entries.length - 1) ? null : <div className='table-entry-line'></div>}
+            </Fragment>
         )}
     </div>
 }
