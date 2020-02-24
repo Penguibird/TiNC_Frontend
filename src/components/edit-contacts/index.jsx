@@ -65,6 +65,8 @@ export default class Contacts extends Component {
         this.setState(newState);
     }
 
+    emptyFunction = () => {}
+
     render() {
         return (
             <div className='edit-contacts'>
@@ -78,8 +80,7 @@ export default class Contacts extends Component {
                         <img src={phone} className='icon phone' />
                         <div className='edit-flexbox contact-phone-wrapper'>
                             {contact.phone.map((phone, ii) => {
-                                return <TextInput className='contact-phone' key={ii} defaultValue={phone}
-                                    onBlur={this.handleChange(i, 'phone', ii)} />
+                                return <TextInput className='contact-phone' key={ii} defaultValue={phone} onChange={this.handleChange(i, 'phone', ii)} />
                             })}
                             <button className=''
                                 onClick={() => {
@@ -93,7 +94,7 @@ export default class Contacts extends Component {
                         <img src={email} className='icon email' />
                         <div className='contact-email-wrapper edit-flexbox'>
                             {contact.email.map((email, ii) => {
-                                return <TextInput className='contact-email' key={ii} defaultValue={email} onBlur={this.handleChange(i, 'email', ii)} />
+                                return <TextInput className='contact-email' key={ii} defaultValue={email} onChange={this.handleChange(i, 'email', ii)} />
                             })}
                             <button className=''
                                 onClick={() => {

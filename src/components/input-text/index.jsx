@@ -62,9 +62,11 @@ export default function Input(props) {
 
     const moveCursorToEnd = (e) => {
         //add focus to the textarea immediately afer rendering
-        var temp_value = e.target.value
+        let temp_value = e.target.value
+        console.log(e.target);
         e.target.value = ''
         e.target.value = temp_value
+        console.log("did i doo that", temp_value)
     }
 
     const handleChange = (e) => {
