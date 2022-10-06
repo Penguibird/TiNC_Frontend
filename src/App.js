@@ -28,6 +28,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <BrowserRouter>
+      
         <div className="App">
           <Helmet />
           <NavBar />
