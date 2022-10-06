@@ -12,9 +12,8 @@ import NavBar from './components/nav-bar'
 import Table from './components/table';
 
 
-const cache = new InMemoryCache();
 const link = new HttpLink({
-  uri: "https://tincisnocrm.herokuapp.com/"
+  uri: window.location.origin.includes('localhost') ? 'http://localhost:4000' : "https://tincbackend-production.up.railway.app/"
 });
 
 const client = new ApolloClient({
@@ -30,7 +29,7 @@ function App() {
     <ApolloProvider client={client}>
       <BrowserRouter>
         <div className="App">
-          <Helmet />            
+          <Helmet />
           <NavBar />
           <Table client={client} />
         </div>
